@@ -17,10 +17,10 @@ public class VendasApplication {
     @Bean
     public CommandLineRunner init(@Autowired ClienteRepository clientes) {
         return args -> {
-            clientes.salvar(new Cliente("Manoel"));
-            clientes.salvar(new Cliente("Outro cliente"));
+            clientes.save(new Cliente("Manoel"));
+            clientes.save(new Cliente("Outro cliente"));
 
-            List<Cliente> todosClientes = clientes.obterTodos();
+            List<Cliente> todosClientes = clientes.findAll();
             todosClientes.forEach(System.out::println);
         };
     }
