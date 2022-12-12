@@ -13,7 +13,7 @@ public class Cliente {
     @Column(length = 100)
     private String nome;
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
     private Set<Pedido> pedidos;
 
     public Set<Pedido> getPedidos() {
